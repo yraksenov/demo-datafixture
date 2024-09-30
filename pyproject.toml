@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "demo-datafixture"
+version = "0.1.0"
+description = "The demo project to demonstrate a Data Fixture."
+authors = ["Yury Aksenov <yraksenov@gmail.com>"]
+license = "Creative Commons Zero v1.0 Universal"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.3"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.11.2"
+black = "^24.8.0"
+pylint = "^3.3.1"
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
