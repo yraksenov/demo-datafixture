@@ -14,3 +14,4 @@ Thrid, use ``poetry shell`` to enter the environment.
 
 Now you may run data_gen: ``python data_gen.py`` to create the data fixtures directory with input data and expectations files.
 
+Use ``python create_db.py`` to create a test database.

@@ -18,7 +18,7 @@ def main(fixtures_dir, count):
     expectations_filename = os.path.join(fixtures_dir, "expectations.csv")
     input_data_filename = os.path.join(fixtures_dir, "input_data.csv")
     df.to_csv(expectations_filename)
-    df["v1 op expectation".split()].to_csv(input_data_filename)
+    df["v1 op v2".split()].to_csv(input_data_filename)
 
 
 if __name__ == "__main__":
