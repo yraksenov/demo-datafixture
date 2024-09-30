@@ -1,3 +1,4 @@
+import json
 import os
 import random
 
@@ -13,11 +14,17 @@ def row_generator(count):
         yield val1, operation, val2, eval(f"{val1} {operation} {val2}")
 
 
+INPUT_DATA = "input_data.csv"
+EXPECTATIONS = "expectations.csv"
+
+
 def main(fixtures_dir, count):
-    df = pd.DataFrame(row_generator(count), columns="v1 op v2 expectation".split())
-    expectations_filename = os.path.join(fixtures_dir, "expectations.csv")
-    input_data_filename = os.path.join(fixtures_dir, "input_data.csv")
-    df.to_csv(expectations_filename)
+    df = pd.DataFrame(row_generator(count), columns="v1 op v2 result".split())
+    expectations_filename = os.path.join(fixtures_dir, EXPECTATIONS)
+    input_data_filename = os.path.join(fixtures_dir, INPUT_DATA)
+    with open(os.path.join(fixtures_dir, "root.json"), "w") as fd:
+        json.dump({"input_data": INPUT_DATA, "expectations": EXPECTATIONS}, fd)
+    df.to_csv(expectations_filename, index=False)
     df["v1 op v2".split()].to_csv(input_data_filename)
 
 
